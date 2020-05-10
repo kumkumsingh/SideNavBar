@@ -1,0 +1,86 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.sidebar{
+    width:8rem;
+    height: 100%;
+    background-color: #eee;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index:2;
+}
+.menu-icon{
+    margin-top: 3rem;
+    cursor: pointer;
+    /* height: 2rem;
+    width: 2rem;
+    background-color: #222; */
+}
+.line{
+    height: 0.2rem;
+    width: 2.5rem;
+    background-color: #222;
+    margin-bottom: 0.6rem;
+}
+.line1,.line3{
+   width:1.8rem;
+   transform: all .3s;
+}
+.menu-icon:hover .line{
+    width: 2.5rem;
+}
+.navigation{
+    width:20rem;
+    left: -12rem;
+    height: 100%;
+    position: fixed;
+    background: linear-gradient(to top,rgba(34,32,41,1) , rgba(34,32,41,0.8)), url("/Dog.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: left .8s cubic-bezier(1,0,0,1);
+}
+.navigation-link{
+  text-decoration: none;
+  color:#deaa86;
+}
+.navigation-item{
+    list-style: none;
+    font-size: 1.5rem;
+}
+.navigation .navigation-header {
+ position: absolute;
+ top:10%;
+ color:#deaa86;
+}
+.navigation-list {
+    height: 15rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+/* general sibling selector */
+.checkbox:checked ~ .navigation{
+  left: 8rem;
+}
+/* to select immediate sibling */
+.checkbox:checked + .sidebar .line1{
+ transform: rotate(-45deg) translate(-5px ,13px);
+ width:2.5rem;
+}
+/* i can even use ~ */
+.checkbox:checked ~ .sidebar .line2{
+   opacity: 0;
+   }
+   .checkbox:checked + .sidebar .line3{
+    transform: rotate(45deg)  translate(-5px,-13px);
+    width:2.5rem;
+   }
